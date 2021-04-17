@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import VideoHeader from './ components/video_header/video_header';
 import VideoList from './ components/video_list/video_list';
 import './app.css';
+import styles from './app.module.css';
 
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -13,7 +15,7 @@ function App() {
     };
 
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=KR&maxResults=25&key=${apiKey}`,
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=KR&maxResults=24&key=${apiKey}`,
       requestOptions
     )
       .then((response) => response.json())
@@ -21,7 +23,14 @@ function App() {
       .catch((error) => console.log('error', error));
   }, []);
 
-  return <VideoList videos={videos} />;
+  return (
+    <>
+      <VideoHeader />
+      <section className={styles.videoContainer}>
+        <VideoList videos={videos} />
+      </section>
+    </>
+  );
 }
 
 export default App;
