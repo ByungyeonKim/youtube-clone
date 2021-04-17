@@ -1,8 +1,24 @@
-import React, { memo } from 'react';
+import React, { memo, useRef } from 'react';
 import styles from './header.module.css';
 import profile from './img/thumbnail_profile_none.jpg';
 
-const VideoHeader = memo(() => {
+const VideoHeader = memo(({ onSearch }) => {
+  const inputRef = useRef();
+  const handleSearch = () => {
+    const value = inputRef.current.value;
+    onSearch(value);
+  };
+
+  const onKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
+  const onClick = () => {
+    handleSearch();
+  };
+
   return (
     <header>
       <div className={styles.start}>
@@ -16,17 +32,24 @@ const VideoHeader = memo(() => {
         </div>
       </div>
       <div className={styles.center}>
-        <form>
-          <div className={styles.search}>
-            <input type='text' placeholder='검색' />
-            <button>
-              <i className='fas fa-keyboard'></i>
-            </button>
-          </div>
-          <button className={styles.searchBtn}>
-            <i className='fas fa-search'></i>
+        <div className={styles.search}>
+          <input //
+            ref={inputRef}
+            type='search'
+            placeholder='검색'
+            onKeyPress={onKeyPress}
+          />
+          <button>
+            <i className='fas fa-keyboard'></i>
           </button>
-        </form>
+        </div>
+        <button //
+          className={styles.searchBtn}
+          type='submit'
+          onClick={onClick}
+        >
+          <i className='fas fa-search'></i>
+        </button>
         <button>
           <i className='fas fa-microphone'></i>
         </button>
