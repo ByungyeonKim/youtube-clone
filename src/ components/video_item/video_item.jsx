@@ -1,14 +1,22 @@
 import React from 'react';
 import styles from './video_item.module.css';
 
-const VideoItem = ({ video: { snippet } }) => (
-  <li className={styles.listItem}>
-    <img className={styles.thumbnail} src={snippet.thumbnails.medium.url} alt='썸네일' />
-    <div className={styles.titleBox}>
-      <p className={styles.title}>{snippet.title}</p>
-      <p className={styles.channelTitle}>{snippet.channelTitle}</p>
-    </div>
-  </li>
-);
+const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
+  const displayType = display === 'list' ? styles.list : styles.grid;
+
+  return (
+    <li className={`${styles.video} ${displayType}`} onClick={() => onVideoClick(video)}>
+      <img //
+        className={styles.thumbnail}
+        src={snippet.thumbnails.medium.url}
+        alt='동영상 썸네일'
+      />
+      <div className={`${styles.titleBox} ${displayType}`}>
+        <p className={styles.title}>{snippet.title}</p>
+        <p className={styles.channelTitle}>{snippet.channelTitle}</p>
+      </div>
+    </li>
+  );
+};
 
 export default VideoItem;

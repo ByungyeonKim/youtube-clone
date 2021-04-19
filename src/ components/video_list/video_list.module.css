@@ -1,5 +1,4 @@
-.videoList {
-  display: grid;
-  grid-template-columns: repeat(4, 320px);
-  gap: 40px 16px;
+.videos {
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -1,4 +1,13 @@
-.videoContainer {
+.container {
+  display: flex;
   background-color: #181818;
   padding: 24px 0 0 24px;
+}
+
+.detail {
+  width: 70%;
+}
+
+.list {
+  width: 100%;
 }
