@@ -9,5 +9,9 @@
 }
 
 .list {
+  width: 30%;
+}
+
+.grid {
   width: 100%;
 }

@@ -2,7 +2,7 @@ import React, { memo, useRef } from 'react';
 import styles from './header.module.css';
 import profile from './img/thumbnail_profile_none.jpg';
 
-const VideoHeader = memo(({ onSearch }) => {
+const VideoHeader = memo(({ onSearch, logoClick }) => {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
@@ -25,7 +25,7 @@ const VideoHeader = memo(({ onSearch }) => {
         <button>
           <i className='fas fa-bars'></i>
         </button>
-        <div className={styles.logo}>
+        <div className={styles.logo} onClick={logoClick}>
           <i className='fab fa-youtube'></i>
           <span className={styles.logoName}>Premium</span>
           <span className={styles.country}>KR</span>
