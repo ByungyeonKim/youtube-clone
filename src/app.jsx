@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import VideoDetail from './ components/video_detail/video_detail';
 import VideoHeader from './ components/video_header/video_header';
 import VideoList from './ components/video_list/video_list';
@@ -10,33 +11,36 @@ function App({ youtube }) {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [loading, setLoding] = useState(false);
   const displayType = selectedVideo ? styles.list : styles.grid;
-  const selectVideo = (video) => {
+  const selectVideo = useCallback((video) => {
     setSelectedVideo(video);
-  };
+  }, []);
 
-  const logoClick = () => {
+  const logoClick = useCallback(() => {
     setSelectedVideo(null);
     youtube
       .mostPopular() //
       .then((videos) => setVideos(videos));
-  };
+  }, [youtube]);
 
-  const search = (query) => {
-    setSelectedVideo(null);
-    setLoding(true);
-    youtube
-      .search(query) //
-      .then((videos) => {
-        setTimeout(setLoding(false), 0);
-        setVideos(videos);
-      });
-  };
+  const search = useCallback(
+    (query) => {
+      setSelectedVideo(null);
+      setLoding(true);
+      youtube
+        .search(query) //
+        .then((videos) => {
+          setTimeout(setLoding(false), 0);
+          setVideos(videos);
+        });
+    },
+    [youtube]
+  );
 
   useEffect(() => {
     youtube
       .mostPopular() //
       .then((videos) => setVideos(videos));
-  }, []);
+  }, [youtube]);
 
   return (
     <>

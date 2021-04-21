@@ -14,11 +14,9 @@ const VideoHeader = memo(({ onSearch, logoClick }) => {
       handleSearch();
     }
   };
-
   const onClick = () => {
     handleSearch();
   };
-
   return (
     <header>
       <div className={styles.start}>
