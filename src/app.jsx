@@ -8,6 +8,7 @@ import styles from './app.module.css';
 
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
+  const [channels, setChannels] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [loading, setLoding] = useState(false);
   const displayType = selectedVideo ? styles.list : styles.grid;
@@ -39,7 +40,16 @@ function App({ youtube }) {
   useEffect(() => {
     youtube
       .mostPopular() //
-      .then((videos) => setVideos(videos));
+      .then((videos) => {
+        for (let i = 0; i < videos.length; i++) {
+          youtube
+            .channel(videos[i].snippet.channelId) //
+            .then((channels) => {
+              setChannels(channels);
+            });
+        }
+        setVideos(videos);
+      });
   }, [youtube]);
 
   return (
@@ -54,6 +64,7 @@ function App({ youtube }) {
         )}
         <div className={displayType}>
           <VideoList
+            channels={channels}
             videos={videos}
             onVideoClick={selectVideo}
             display={selectedVideo ? 'list' : 'grid'}

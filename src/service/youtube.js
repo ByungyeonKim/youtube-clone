@@ -1,11 +1,12 @@
 class Youtube {
   constructor(key) {
     this.key = key;
-    this.GetRequestOptions = {
+    this.getRequestOptions = {
       method: 'GET',
       redirect: 'follow',
     };
   }
+
   async mostPopular() {
     try {
       const response = await fetch(
@@ -27,6 +28,19 @@ class Youtube {
       );
       const result = await response.json();
       return result.items.map((item) => ({ ...item, id: item.id.videoId }));
+    } catch (error) {
+      return console.log('error', error);
+    }
+  }
+
+  async channel(channelId) {
+    try {
+      const response = await fetch(
+        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&maxResults=24&id=${channelId}&key=${this.key}`,
+        this.getRequestOptions
+      );
+      const result = await response.json();
+      return result.items;
     } catch (error) {
       return console.log('error', error);
     }

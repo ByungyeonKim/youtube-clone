@@ -10,7 +10,9 @@ const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
         src={snippet.thumbnails.medium.url}
         alt='동영상 썸네일'
       />
-      <div className={`${styles.titleBox} ${displayType}`}>
+
+      <div className={`${styles.meta} ${displayType}`}>
+        <a href='#' className={styles.avatarLink}></a>
         <p className={styles.title}>{snippet.title}</p>
         <p className={styles.channelTitle}>{snippet.channelTitle}</p>
       </div>
