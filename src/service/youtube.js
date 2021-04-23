@@ -13,8 +13,8 @@ class Youtube {
         `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=KR&maxResults=24&key=${this.key}`,
         this.getRequestOptions
       );
-      const result = await response.json();
-      return result.items;
+      const result_1 = await response.json();
+      return result_1.items;
     } catch (error) {
       return console.log('error', error);
     }
@@ -33,17 +33,20 @@ class Youtube {
     }
   }
 
-  async channel(channelId) {
-    try {
-      const response = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&maxResults=24&id=${channelId}&key=${this.key}`,
-        this.getRequestOptions
+  channel(videos, promises) {
+    for (let i = 0; i < videos.length; i++) {
+      promises.push(
+        fetch(
+          `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&maxResults=24&id=${videos[i].snippet.channelId}&key=${this.key}`,
+          this.getRequestOptions
+        )
+          .then((response) => response.json())
+          .then((result) => result.items[0].snippet.thumbnails.default.url)
+          .then((url) => (videos[i].channelThumbnails = url))
+          .catch((error) => console.log('error', error))
       );
-      const result = await response.json();
-      return result.items;
-    } catch (error) {
-      return console.log('error', error);
     }
+    return promises;
   }
 }
 

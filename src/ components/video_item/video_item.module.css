@@ -15,12 +15,26 @@
   width: 35%;
 }
 
-.meta.grid {
-  padding: 0 1.5em;
+.meta {
+  display: flex;
 }
 
-.meta.list {
-  padding: 0 0.5em;
+.titleWrap.grid {
+  padding-right: 1.5em;
+}
+
+.titleWrap.list {
+  padding-right: 0.5em;
+}
+
+.channelThumbnail {
+  height: 36px;
+  margin: 12px 12px 0 0;
+  clip-path: circle(50%);
+}
+
+.channelThumbnail .thumbnail {
+  width: 36px;
 }
 
 .thumbnail {
@@ -44,4 +58,11 @@
   color: #aaa;
   margin-bottom: 12px;
   cursor: default;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-height: 1.1rem;
+  max-height: 1.1rem;
+  display: -webkit-box;
 }

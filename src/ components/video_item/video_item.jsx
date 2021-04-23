@@ -11,10 +11,18 @@ const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
         alt='동영상 썸네일'
       />
 
-      <div className={`${styles.meta} ${displayType}`}>
-        <a href='#' className={styles.avatarLink}></a>
-        <p className={styles.title}>{snippet.title}</p>
-        <p className={styles.channelTitle}>{snippet.channelTitle}</p>
+      <div className={styles.meta}>
+        <div className={styles.channelThumbnail}>
+          <img //
+            className={styles.thumbnail}
+            src={video.channelThumbnails}
+            alt='채널 썸네일'
+          />
+        </div>
+        <div className={`${styles.titleWrap} ${displayType}`}>
+          <p className={styles.title}>{snippet.title}</p>
+          <p className={styles.channelTitle}>{snippet.channelTitle}</p>
+        </div>
       </div>
     </li>
   );
