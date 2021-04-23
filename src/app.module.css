@@ -1,11 +1,16 @@
+.content {
+  display: flex;
+}
+
 .container {
   display: flex;
   background-color: #181818;
   padding: 24px 0 0 24px;
 }
 
-.detail {
-  width: 70%;
+.navBar {
+  width: 240px;
+  background-color: #212121;
 }
 
 .list {
@@ -14,4 +19,8 @@
 
 .grid {
   width: 100%;
+}
+
+.detail {
+  width: 70%;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCallback } from 'react';
+import NavBar from './ components/nav_bar/nav_bar';
 import VideoDetail from './ components/video_detail/video_detail';
 import VideoHeader from './ components/video_header/video_header';
 import VideoList from './ components/video_list/video_list';
@@ -48,20 +49,25 @@ function App({ youtube }) {
   return (
     <>
       <VideoHeader onSearch={search} logoClick={logoClick} />
-      <section className={styles.container}>
-        {selectedVideo && (
-          <div className={styles.detail}>
-            <VideoDetail video={selectedVideo} />
+      <div className={styles.content}>
+        <nav className={styles.navBar}>
+          <NavBar />
+        </nav>
+        <section className={styles.container}>
+          {selectedVideo && (
+            <div className={styles.detail}>
+              <VideoDetail video={selectedVideo} />
+            </div>
+          )}
+          <div className={displayType}>
+            <VideoList
+              videos={videos}
+              onVideoClick={selectVideo}
+              display={selectedVideo ? 'list' : 'grid'}
+            />
           </div>
-        )}
-        <div className={displayType}>
-          <VideoList
-            videos={videos}
-            onVideoClick={selectVideo}
-            display={selectedVideo ? 'list' : 'grid'}
-          />
-        </div>
-      </section>
+        </section>
+      </div>
     </>
   );
 }
