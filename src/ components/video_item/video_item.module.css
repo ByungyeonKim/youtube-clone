@@ -4,11 +4,13 @@
   flex: 1 1 20%;
   width: calc(100% / 3 - 16px);
   margin: 0 8px 40px;
+  cursor: pointer;
 }
 
 .video.list {
   display: flex;
   margin-bottom: 8px;
+  cursor: pointer;
 }
 
 .video.list img {
@@ -37,10 +39,6 @@
   width: 36px;
 }
 
-.thumbnail {
-  cursor: pointer;
-}
-
 .title {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -51,13 +49,11 @@
   max-height: 2.2rem;
   color: #fff;
   margin: 12px 0 4px 0;
-  cursor: pointer;
 }
 
 .channelTitle {
   color: #aaa;
   margin-bottom: 12px;
-  cursor: default;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;

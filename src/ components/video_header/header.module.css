@@ -1,10 +1,13 @@
 header {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   height: 56px;
   padding: 0 16px;
   background-color: rgba(33, 33, 33, 0.98);
   color: #fff;
+  z-index: 10;
 }
 
 button {
@@ -98,6 +101,7 @@ input {
   width: 60px;
   height: 40px;
   padding: 1px 6px;
+  margin-right: 16px;
   cursor: default;
   outline: none;
 }

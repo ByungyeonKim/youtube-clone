@@ -32,6 +32,41 @@ const NavBar = (props) => (
         YouTube Music
       </a>
     </li>
+    <li className={styles.item}>
+      <a className={styles.link} title='YouTube Music' href='/'>
+        <i class='fas fa-archive'></i>
+        보관함
+      </a>
+    </li>
+    <li className={styles.item}>
+      <a className={styles.link} title='YouTube Music' href='/'>
+        <i class='fas fa-history'></i>
+        시청 기록
+      </a>
+    </li>
+    <li className={styles.item}>
+      <a className={styles.link} title='YouTube Music' href='/'>
+        <i class='fas fa-user-plus'></i>내 동영상
+      </a>
+    </li>
+    <li className={styles.item}>
+      <a className={styles.link} title='YouTube Music' href='/'>
+        <i class='fas fa-clock'></i>
+        나중에 볼 동영상
+      </a>
+    </li>
+    <li className={styles.item}>
+      <a className={styles.link} title='YouTube Music' href='/'>
+        <i class='fas fa-thumbs-up'></i>
+        좋아요 표시한 동영상
+      </a>
+    </li>
+    <li className={styles.item}>
+      <a className={styles.link} title='YouTube Music' href='/'>
+        <i class='fas fa-chevron-down'></i>
+        더보기
+      </a>
+    </li>
   </ul>
 );
 

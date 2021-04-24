@@ -10,7 +10,7 @@ class Youtube {
   async mostPopular() {
     try {
       const response = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=KR&maxResults=24&key=${this.key}`,
+        `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=KR&maxResults=36&key=${this.key}`,
         this.getRequestOptions
       );
       const result_1 = await response.json();
@@ -23,7 +23,7 @@ class Youtube {
   async search(query) {
     try {
       const response = await fetch(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=24&q=${query}&type=video&key=${this.key}`,
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=36&q=${query}&type=video&key=${this.key}`,
         this.getRequestOptions
       );
       const result = await response.json();
@@ -37,7 +37,7 @@ class Youtube {
     for (let i = 0; i < videos.length; i++) {
       promises.push(
         fetch(
-          `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&maxResults=24&id=${videos[i].snippet.channelId}&key=${this.key}`,
+          `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&maxResults=36&id=${videos[i].snippet.channelId}&key=${this.key}`,
           this.getRequestOptions
         )
           .then((response) => response.json())
