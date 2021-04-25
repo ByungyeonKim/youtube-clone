@@ -1,0 +1,48 @@
+.detail {
+  color: #fff;
+  padding: 0 24px;
+}
+
+.primaryInfo {
+  padding: 20px 0 8px;
+}
+
+.primaryInfo h1 {
+  font-size: 1.125rem;
+}
+
+.secondaryInfo {
+  position: relative;
+  display: flex;
+  padding-top: 16px;
+  margin-bottom: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.channelThumbnail {
+  height: 48px;
+  clip-path: circle(50%);
+  margin-right: 16px;
+}
+
+.channelThumbnail .thumbnail {
+  width: 48px;
+}
+
+.subscribeBtn {
+  width: 70px;
+  height: 36px;
+  font-size: 0.875rem;
+  border-radius: 2px;
+  background-color: #c00;
+  right: 0;
+  position: absolute;
+  transform: translateY(6px);
+}
+
+.description {
+  white-space: pre-wrap;
+  padding: 0 0 16px 64px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 24px;
+}

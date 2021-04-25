@@ -24,7 +24,7 @@ const VideoHeader = memo(({ onSearch, logoClick }) => {
           <i className='fas fa-bars'></i>
         </button>
         <div className={styles.logo} onClick={logoClick}>
-          <i className='fab fa-youtube'></i>
+          <img className={styles.logoImg} src='/logo.png' alt='로고' />
           <span className={styles.logoName}>Premium</span>
           <span className={styles.country}>KR</span>
         </div>

@@ -50,10 +50,12 @@ function App({ youtube }) {
     <>
       <VideoHeader onSearch={search} logoClick={logoClick} />
       <div className={styles.content}>
-        <nav className={styles.navBar}>
-          <NavBar />
-        </nav>
-        <section className={styles.container}>
+        {!selectedVideo && (
+          <nav className={styles.navBar}>
+            <NavBar />
+          </nav>
+        )}
+        <section className={`${styles.container} ${!selectedVideo && styles.grid}`}>
           {selectedVideo && (
             <div className={styles.detail}>
               <VideoDetail video={selectedVideo} />

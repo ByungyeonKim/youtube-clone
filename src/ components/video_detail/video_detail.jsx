@@ -13,9 +13,21 @@ const VideoDetail = ({ video, video: { snippet } }) => (
       frameBorder='0'
       allowFullScreen
     ></iframe>
-    <h2>{snippet.title}</h2>
-    <h2>{snippet.channelTitle}</h2>
-    <pre>{snippet.description}</pre>
+    <div className={styles.primaryInfo}>
+      <h1>{snippet.title}</h1>
+    </div>
+    <div className={styles.secondaryInfo}>
+      <div className={styles.channelThumbnail}>
+        <img //
+          className={styles.thumbnail}
+          src={video.channelThumbnails}
+          alt='채널 썸네일'
+        />
+      </div>
+      <h2>{snippet.channelTitle}</h2>
+      <button className={styles.subscribeBtn}>구독</button>
+    </div>
+    <pre className={styles.description}>{snippet.description}</pre>
   </section>
 );
 

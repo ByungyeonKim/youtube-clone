@@ -12,13 +12,15 @@ const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
       />
 
       <div className={styles.meta}>
-        <div className={styles.channelThumbnail}>
-          <img //
-            className={styles.thumbnail}
-            src={video.channelThumbnails}
-            alt='채널 썸네일'
-          />
-        </div>
+        {display !== 'list' && (
+          <div className={styles.channelThumbnail}>
+            <img //
+              className={styles.thumbnail}
+              src={video.channelThumbnails}
+              alt='채널 썸네일'
+            />
+          </div>
+        )}
         <div className={`${styles.titleWrap} ${displayType}`}>
           <p className={styles.title}>{snippet.title}</p>
           <p className={styles.channelTitle}>{snippet.channelTitle}</p>

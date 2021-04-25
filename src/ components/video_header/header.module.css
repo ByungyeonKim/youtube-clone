@@ -36,8 +36,6 @@ form {
 .logo {
   position: relative;
   height: 40px;
-  padding-top: 4px;
-  font-size: 24px;
   color: red;
   cursor: pointer;
 }
@@ -45,6 +43,7 @@ form {
 .logoName {
   color: #fff;
   font-weight: 600;
+  letter-spacing: -1.5px;
 }
 
 .country {
@@ -54,7 +53,7 @@ form {
 }
 
 .center {
-  flex: 0.9;
+  flex: 0.7;
 }
 
 form,
@@ -115,4 +114,15 @@ input {
   margin: auto;
   clip-path: circle(50%);
   cursor: pointer;
+}
+
+.logoName {
+  font-size: 21px;
+}
+
+.logoImg {
+  width: 24px;
+  height: 26px;
+  transform: translateY(6px);
+  margin-right: 2px;
 }
