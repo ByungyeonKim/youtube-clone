@@ -10,6 +10,9 @@ const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
         src={snippet.thumbnails.medium.url}
         alt='동영상 썸네일'
       />
+      <div className={styles.play}>
+        <i class='fas fa-play'></i> 지금 재생
+      </div>
 
       <div className={styles.meta}>
         {display !== 'list' && (
