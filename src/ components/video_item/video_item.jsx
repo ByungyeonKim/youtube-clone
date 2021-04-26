@@ -11,7 +11,7 @@ const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
         alt='동영상 썸네일'
       />
       <div className={styles.play}>
-        <i class='fas fa-play'></i> 지금 재생
+        <i className='fas fa-play'></i> 지금 재생
       </div>
 
       <div className={styles.meta}>

@@ -10,60 +10,60 @@ const NavBar = (props) => (
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='탐색' href='/'>
-        <i class='fas fa-compass'></i>
+        <i className='fas fa-compass'></i>
         탐색
       </a>
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='구독' href='/'>
-        <i class='fab fa-youtube-square'></i>
+        <i className='fab fa-youtube-square'></i>
         구독
       </a>
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='Originals' href='/'>
-        <i class='fab fa-youtube'></i>
+        <i className='fab fa-youtube'></i>
         Originals
       </a>
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='YouTube Music' href='/'>
-        <i class='fas fa-play-circle'></i>
+        <i className='fas fa-play-circle'></i>
         YouTube Music
       </a>
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='YouTube Music' href='/'>
-        <i class='fas fa-archive'></i>
+        <i className='fas fa-archive'></i>
         보관함
       </a>
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='YouTube Music' href='/'>
-        <i class='fas fa-history'></i>
+        <i className='fas fa-history'></i>
         시청 기록
       </a>
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='YouTube Music' href='/'>
-        <i class='fas fa-user-plus'></i>내 동영상
+        <i className='fas fa-user-plus'></i>내 동영상
       </a>
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='YouTube Music' href='/'>
-        <i class='fas fa-clock'></i>
+        <i className='fas fa-clock'></i>
         나중에 볼 동영상
       </a>
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='YouTube Music' href='/'>
-        <i class='fas fa-thumbs-up'></i>
+        <i className='fas fa-thumbs-up'></i>
         좋아요 표시한 동영상
       </a>
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='YouTube Music' href='/'>
-        <i class='fas fa-chevron-down'></i>
+        <i className='fas fa-chevron-down'></i>
         더보기
       </a>
     </li>
