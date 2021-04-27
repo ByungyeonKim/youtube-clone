@@ -46,9 +46,3 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 24px;
 }
-
-@media screen and (max-width: 48rem) {
-  .detail {
-    width: auto;
-  }
-}

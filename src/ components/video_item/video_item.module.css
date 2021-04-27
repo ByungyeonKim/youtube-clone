@@ -90,9 +90,4 @@
   .video.list {
     width: 100%;
   }
-  .video.list:hover .play {
-    display: flex;
-    width: 32%;
-    height: 25%;
-  }
 }
