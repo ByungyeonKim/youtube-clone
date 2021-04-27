@@ -46,3 +46,17 @@ body::-webkit-scrollbar-track {
 .detail {
   width: 70%;
 }
+
+@media screen and (max-width: 48rem) {
+  .container {
+    flex-direction: column;
+  }
+  .detail {
+    width: auto;
+  }
+
+  .list {
+    width: auto;
+    padding: 0 24px;
+  }
+}

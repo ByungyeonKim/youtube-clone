@@ -85,3 +85,14 @@
 .video.grid:hover .play {
   display: flex;
 }
+
+@media screen and (max-width: 48rem) {
+  .video.list {
+    width: 100%;
+  }
+  .video.list:hover .play {
+    display: flex;
+    width: 32%;
+    height: 25%;
+  }
+}

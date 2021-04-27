@@ -26,12 +26,12 @@ function App({ youtube }) {
 
   const search = useCallback(
     (query) => {
-      setSelectedVideo(null);
       youtube
         .search(query) //
         .then((videos) => {
           const promises = [];
           Promise.all(youtube.channel(videos, promises)).then(() => setVideos(videos));
+          setSelectedVideo(null);
         });
     },
     [youtube]
