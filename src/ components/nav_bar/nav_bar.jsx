@@ -67,6 +67,12 @@ const NavBar = (props) => (
         더보기
       </a>
     </li>
+    <li className={styles.item}>
+      <a className={styles.link} title='BY GitHub' href='https://github.com/ByungyeonKim'>
+        <i class='fab fa-github'></i>
+        BYTube GitHub
+      </a>
+    </li>
   </ul>
 );
 
