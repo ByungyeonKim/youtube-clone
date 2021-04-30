@@ -25,10 +25,12 @@
 
 .titleWrap.grid {
   padding-right: 1.5em;
+  width: 100%;
 }
 
 .titleWrap.list {
   padding-right: 0.5em;
+  width: 80%;
 }
 
 .channelThumbnail {

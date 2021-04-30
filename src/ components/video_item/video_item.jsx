@@ -3,6 +3,8 @@ import styles from './video_item.module.css';
 
 const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
   const displayType = display === 'list' ? styles.list : styles.grid;
+  const parser = new DOMParser();
+  const title = parser.parseFromString(snippet.title, 'text/html');
   return (
     <li className={`${styles.video} ${displayType}`} onClick={() => onVideoClick(video)}>
       <img //
@@ -25,7 +27,7 @@ const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
           </div>
         )}
         <div className={`${styles.titleWrap} ${displayType}`}>
-          <p className={styles.title}>{snippet.title}</p>
+          <p className={styles.title}>{title.body.innerHTML}</p>
           <p className={styles.channelTitle}>{snippet.channelTitle}</p>
         </div>
       </div>

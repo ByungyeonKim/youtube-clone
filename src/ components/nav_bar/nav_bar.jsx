@@ -69,7 +69,7 @@ const NavBar = (props) => (
     </li>
     <li className={styles.item}>
       <a className={styles.link} title='BY GitHub' href='https://github.com/ByungyeonKim'>
-        <i class='fab fa-github'></i>
+        <i className='fab fa-github'></i>
         BYTube GitHub
       </a>
     </li>
