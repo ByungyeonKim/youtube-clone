@@ -1,15 +1,18 @@
 import React from 'react';
 import styles from './video_item.module.css';
 
-const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
+const VideoItem = ({ video, onVideoClick, display }) => {
   const displayType = display === 'list' ? styles.list : styles.grid;
   const parser = new DOMParser();
-  const title = parser.parseFromString(snippet.title, 'text/html');
+  const title = parser.parseFromString(video.title, 'text/html');
   return (
-    <li className={`${styles.video} ${displayType}`} onClick={() => onVideoClick(video)}>
+    <li
+      className={`${styles.video} ${displayType}`}
+      onClick={() => onVideoClick(video)}
+    >
       <img //
         className={styles.thumbnail}
-        src={snippet.thumbnails.medium.url}
+        src={video.thumbnailURL}
         alt='동영상 썸네일'
       />
       <div className={styles.play}>
@@ -28,7 +31,7 @@ const VideoItem = ({ video, video: { snippet }, onVideoClick, display }) => {
         )}
         <div className={`${styles.titleWrap} ${displayType}`}>
           <p className={styles.title}>{title.body.innerHTML}</p>
-          <p className={styles.channelTitle}>{snippet.channelTitle}</p>
+          <p className={styles.channelTitle}>{video.channelTitle}</p>
         </div>
       </div>
     </li>

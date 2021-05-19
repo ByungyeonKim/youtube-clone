@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './video_detail.module.css';
 
-const VideoDetail = ({ video, video: { snippet } }) => {
+const VideoDetail = ({ video }) => {
   const parser = new DOMParser();
-  const title = parser.parseFromString(snippet.title, 'text/html');
+  const title = parser.parseFromString(video.title, 'text/html');
 
   return (
     <section className={styles.detail}>
@@ -28,10 +28,10 @@ const VideoDetail = ({ video, video: { snippet } }) => {
             alt='채널 썸네일'
           />
         </div>
-        <h2>{snippet.channelTitle}</h2>
+        <h2>{video.channelTitle}</h2>
         <button className={styles.subscribeBtn}>구독</button>
       </div>
-      <pre className={styles.description}>{snippet.description}</pre>
+      <pre className={styles.description}>{video.description}</pre>
     </section>
   );
 };

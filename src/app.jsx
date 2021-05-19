@@ -20,7 +20,9 @@ function App({ youtube }) {
       .mostPopular() //
       .then((videos) => {
         const promises = [];
-        Promise.all(youtube.channel(videos, promises)).then(() => setVideos(videos));
+        Promise.all(youtube.channel(videos, promises)).then(() =>
+          setVideos(videos)
+        );
       });
   }, [youtube]);
 
@@ -30,7 +32,9 @@ function App({ youtube }) {
         .search(query) //
         .then((videos) => {
           const promises = [];
-          Promise.all(youtube.channel(videos, promises)).then(() => setVideos(videos));
+          Promise.all(youtube.channel(videos, promises)).then(() =>
+            setVideos(videos)
+          );
           setSelectedVideo(null);
         });
     },
@@ -42,7 +46,9 @@ function App({ youtube }) {
       .mostPopular() //
       .then((videos) => {
         const promises = [];
-        Promise.all(youtube.channel(videos, promises)).then(() => setVideos(videos));
+        Promise.all(youtube.channel(videos, promises)).then(() =>
+          setVideos(videos)
+        );
       });
   }, [youtube]);
 
@@ -55,7 +61,9 @@ function App({ youtube }) {
             <NavBar />
           </nav>
         )}
-        <section className={`${styles.container} ${!selectedVideo && styles.grid}`}>
+        <section
+          className={`${styles.container} ${!selectedVideo && styles.grid}`}
+        >
           {selectedVideo && (
             <div className={styles.detail}>
               <VideoDetail video={selectedVideo} />

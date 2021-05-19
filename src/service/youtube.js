@@ -12,7 +12,16 @@ class Youtube {
         maxResults: '36',
       },
     });
-    return response.data.items;
+    return response.data.items.map((item) => {
+      return {
+        id: item.id,
+        channelId: item.snippet.channelId,
+        thumbnailURL: item.snippet.thumbnails.medium.url,
+        title: item.snippet.title,
+        channelTitle: item.snippet.channelTitle,
+        description: item.snippet.description,
+      };
+    });
   }
 
   async search(query) {
@@ -24,7 +33,14 @@ class Youtube {
         type: 'video',
       },
     });
-    return response.data.items.map((item) => ({ ...item, id: item.id.videoId }));
+    return response.data.items.map((item) => ({
+      id: item.id.videoId,
+      channelId: item.snippet.channelId,
+      thumbnailURL: item.snippet.thumbnails.medium.url,
+      title: item.snippet.title,
+      channelTitle: item.snippet.channelTitle,
+      description: item.snippet.description,
+    }));
   }
 
   channel(videos, promises) {
@@ -34,7 +50,7 @@ class Youtube {
           params: {
             part: 'snippet',
             maxResults: '36',
-            id: videos[i].snippet.channelId,
+            id: videos[i].channelId,
           },
         })
         .then((result) => result.data.items[0].snippet.thumbnails.default.url)
