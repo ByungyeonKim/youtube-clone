@@ -113,7 +113,9 @@ useEffect(() => {
     .mostPopular() //
     .then((videos) => {
       const promises = [];
-      Promise.all(youtube.channel(videos, promises)).then(() => setVideos(videos));
+      Promise.all(youtube.channel(videos, promises)).then(() =>
+        setVideos(videos)
+      );
     });
 }, [youtube]);
 ```
@@ -173,3 +175,56 @@ const title = parser.parseFromString(snippet.title, 'text/html');
 | 해결 전                                                                                                                                                                       | 해결 후                                                                                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <img width="1500" alt="스크린샷 2021-04-30 오후 4 02 18" src="https://user-images.githubusercontent.com/66554164/116664623-aff20700-a9d3-11eb-8ac8-2aabaec15408.png"> | <img width="1500" alt="스크린샷 2021-04-30 오후 4 03 52" src="https://user-images.githubusercontent.com/66554164/116664647-b7b1ab80-a9d3-11eb-81a6-c4bd145c684b.png"> |
+
+#### (5/19 추가) 10. 필요한 JSON 데이터만 쏙쏙 뽑아 가독성, 유지보수 두 마리 토끼 잡기🐰
+
+- 기존 서비스 로직은 유튜브 API에서 제공하는 모든 데이터를 받아와서 가독성, 코드 중복이 많았다.
+- 내가 필요한 JSON 데이터만 받아오도록 객체를 재구성해 새로 만들었다.
+
+```jsx
+// 기존 인기동영상 JSON 데이터 불러오기 코드
+async mostPopular() {
+  const response = await this.youtube.get('videos', {
+    params: {
+      part: 'snippet',
+      chart: 'mostPopular',
+      regionCode: 'KR',
+      maxResults: '36',
+    },
+  });
+  return response.data.items;
+}
+```
+
+```jsx
+// 리팩토링한 인기동영상 코드
+async mostPopular() {
+  const response = await this.youtube.get('videos', {
+    params: {
+      part: 'snippet',
+      chart: 'mostPopular',
+      regionCode: 'KR',
+      maxResults: '36',
+    },
+  });
+  return response.data.items.map((item) => {
+    return {
+      id: item.id,
+      channelId: item.snippet.channelId,
+      thumbnailURL: item.snippet.thumbnails.medium.url,
+      title: item.snippet.title,
+      channelTitle: item.snippet.channelTitle,
+      description: item.snippet.description,
+    };
+  });
+}
+```
+
+| 기존                                                                                                                                                                          | 리팩토링 후                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img width="1300" alt="스크린샷 2021-05-20 오후 9 11 05" src="https://user-images.githubusercontent.com/66554164/118976446-fa9de800-b9af-11eb-96ec-775cf642de5f.png"> | <img width="1500" alt="스크린샷 2021-05-20 오후 9 13 43" src="https://user-images.githubusercontent.com/66554164/118976743-4e103600-b9b0-11eb-8939-beb1506bdb1d.png"> |
+
+- 기존의 데이터 접근은 items -> snippet -> thumbnails -> ... 이런식의 뎁스가 깊어서 구조가 복잡했다.
+- 리팩토링 후의 접근은 items -> thumbnailURL로 구조도 간단해지고 내가 필요한 데이터를 쉽게 추가, 제거 할 수 있다.
+  - 하위 컴포넌트에 데이터를 props로 넘겨서 사용 할 때도 구조가 간단하기 때문에 코드 중복이 줄어들고 가독성도 좋아졌다.
+  - 개발 유지보수가 좋아졌다! 👍
