@@ -21,7 +21,7 @@ function App({ youtube }) {
       .then((videos) => {
         const promises = [];
         Promise.all(youtube.channel(videos, promises)).then(() =>
-          setVideos(videos)
+          setVideos(videos.items)
         );
       });
   }, [youtube]);
@@ -33,7 +33,7 @@ function App({ youtube }) {
         .then((videos) => {
           const promises = [];
           Promise.all(youtube.channel(videos, promises)).then(() =>
-            setVideos(videos)
+            setVideos(videos.items)
           );
           setSelectedVideo(null);
         });
@@ -47,7 +47,7 @@ function App({ youtube }) {
       .then((videos) => {
         const promises = [];
         Promise.all(youtube.channel(videos, promises)).then(() =>
-          setVideos(videos)
+          setVideos(videos.items)
         );
       });
   }, [youtube]);
@@ -62,7 +62,9 @@ function App({ youtube }) {
           </nav>
         )}
         <section
-          className={`${styles.container} ${!selectedVideo && styles.grid}`}
+          className={`${styles.container} ${
+            !selectedVideo && styles.grid
+          }`}
         >
           {selectedVideo && (
             <div className={styles.detail}>
