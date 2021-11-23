@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useCallback } from 'react';
-import NavBar from './ components/nav_bar/nav_bar';
-import VideoDetail from './ components/video_detail/video_detail';
-import VideoHeader from './ components/video_header/video_header';
-import VideoList from './ components/video_list/video_list';
+import NavBar from './components/nav_bar/nav_bar';
+import VideoDetail from './components/video_detail/video_detail';
+import VideoHeader from './components/video_header/video_header';
+import VideoList from './components/video_list/video_list';
 import styles from './app.module.css';
 
 function App({ youtube }) {
