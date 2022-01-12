@@ -3,7 +3,7 @@ import styles from './nav_bar.module.css';
 
 const NavBar = memo(() => {
   return (
-    <ul className={styles.list}>
+    <ul>
       <li className={`${styles.item} ${styles.selected}`}>
         <a className={styles.link} title='홈' href='/'>
           <i className='fas fa-home'></i>홈

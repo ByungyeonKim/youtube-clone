@@ -55,17 +55,13 @@ function App({ youtube }) {
   return (
     <>
       <VideoHeader onSearch={search} logoClick={logoClick} />
-      <div className={styles.content}>
+      <div className='bg-zinc-800'>
         {!selectedVideo && (
-          <nav className={styles.navBar}>
+          <nav className='hidden'>
             <NavBar />
           </nav>
         )}
-        <section
-          className={`${styles.container} ${
-            !selectedVideo && styles.grid
-          }`}
-        >
+        <section className='max-w-7xl mx-auto'>
           {selectedVideo && (
             <div className={styles.detail}>
               <VideoDetail video={selectedVideo} />
