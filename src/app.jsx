@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useCallback } from 'react';
-import NavBar from './components/nav_bar/nav_bar';
-import VideoDetail from './components/video_detail/video_detail';
-import VideoHeader from './components/video_header/video_header';
-import VideoList from './components/video_list/video_list';
-import styles from './app.module.css';
+import NavBar from './components/nav_bar';
+import VideoDetail from './components/video_detail';
+import VideoHeader from './components/video_header';
+import VideoList from './components/video_list';
 
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const displayType = selectedVideo ? styles.list : styles.grid;
   const selectVideo = useCallback((video) => {
     setSelectedVideo(video);
   }, []);
@@ -55,19 +53,19 @@ function App({ youtube }) {
   return (
     <>
       <VideoHeader onSearch={search} logoClick={logoClick} />
-      <div className='bg-zinc-800'>
+      <div className='bg-zinc-900 relative'>
         {!selectedVideo && (
-          <nav className='hidden'>
+          <nav className='hidden lg:block'>
             <NavBar />
           </nav>
         )}
-        <section className='max-w-7xl mx-auto'>
+        <section className='mx-auto'>
           {selectedVideo && (
-            <div className={styles.detail}>
+            <div className=''>
               <VideoDetail video={selectedVideo} />
             </div>
           )}
-          <div className={displayType}>
+          <div className=''>
             <VideoList
               videos={videos}
               onVideoClick={selectVideo}

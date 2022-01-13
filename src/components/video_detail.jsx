@@ -1,14 +1,13 @@
 import React from 'react';
-import styles from './video_detail.module.css';
 
 const VideoDetail = ({ video }) => {
   const parser = new DOMParser();
   const title = parser.parseFromString(video.title, 'text/html');
 
   return (
-    <section className={styles.detail}>
+    <section className=''>
       <iframe
-        className={styles.video}
+        className=''
         type='text/html'
         title='youtube video player'
         width='100%'
@@ -17,21 +16,21 @@ const VideoDetail = ({ video }) => {
         frameBorder='0'
         allowFullScreen
       ></iframe>
-      <div className={styles.primaryInfo}>
+      <div className=''>
         <h1>{title.body.innerHTML}</h1>
       </div>
-      <div className={styles.secondaryInfo}>
-        <div className={styles.channelThumbnail}>
+      <div className=''>
+        <div className=''>
           <img //
-            className={styles.thumbnail}
+            className=''
             src={video.channelThumbnails}
             alt='채널 썸네일'
           />
         </div>
         <h2>{video.channelTitle}</h2>
-        <button className={styles.subscribeBtn}>구독</button>
+        <button className=''>구독</button>
       </div>
-      <pre className={styles.description}>{video.description}</pre>
+      <pre className=''>{video.description}</pre>
     </section>
   );
 };
