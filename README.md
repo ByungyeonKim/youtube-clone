@@ -1,10 +1,10 @@
-# 리액트로 만든 BYTube 🧑🏻‍💻
+# 리액트로 만든 VintzTube 🧑🏻‍💻
 
-<img width="1500" alt="스크린샷 2021-04-28 오후 4 09 57" src="https://user-images.githubusercontent.com/66554164/116368652-886c3480-a843-11eb-8caf-d324241de8dc.png">
+![vintztube](https://user-images.githubusercontent.com/66554164/150292030-48e67577-ac51-4874-a438-d82ccc4be110.png)
 
-👉 [BYtube](https://bytube.netlify.app)
+👉 [VintzTube](https://vintztube.netlify.app)
 
-## BYTube의 목표
+## VintzTube의 목표
 
 - 리액트 정말 쓸만한지 알아보기 ➡️ 단순히 유명해서가 아닌 정말 내가 필요하고, 배울 가치가 있는지 생각하기 🤔
 - 하나의 뷰를 컴포넌트별로 나누기 ➡️ 리액트만의 안경 갖기 😎
@@ -31,7 +31,7 @@
     <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat&logo=Postman&logoColor=white"/>
  </p>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/aea01573-e082-44b4-8617-12e71bf71494/deploy-status)](https://app.netlify.com/sites/bytube/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aea01573-e082-44b4-8617-12e71bf71494/deploy-status)](https://app.netlify.com/sites/vintztube/deploys)
 
 ### BYTube 프로젝트는 💭
 
@@ -269,3 +269,9 @@ async mostPopular() {
 #### 앞으로 내가 작성한 코드는 왜 이렇게 사용을 했는지 이유를 생각하자.
 
 그래..과거 아무생각 없이 따라치고, 동작하면 넘어가던 나는 잊자. 동작을 하더라도 해당 기술을 사용한 이유와 이렇게 작성한 이유를 알아야 나중에 코드 자랑(?)도 할 수 있고 제대로 이해했다고 볼 수 있다. 그리고 디버깅도, 활용도 쉬워질 수 있다.
+
+---
+
+#### Tailwind CSS로 반응형 페이지 만들기 💨
+
+프로젝트의 결과물을 공유할 때 모바일로 보는 경우가 훨씬 많다는 걸 깨달았다. VintzTube 프로젝트는 PC 화면에서만 정상적으로 보였기 때문에 반응형 웹 페이지를 구현하려 했다. 하지만 기존에 사용하던 CSS 방식으로는 반응형 웹 페이지를 구현하기에 너무 오랜 시간이 걸릴 것 같아서 이를 쉽게 구현하기 위한 도구를 찾다가 tailwind css 프레임워크를 발견해서 적용해보았다. 결과적으로 너무 만족스러웠고 생각보다 빠르게 레이아웃과 스타일 구현을 마쳐서 로직에 집중 할 수 있게 되었다. [Tailwind CSS 사용법, 장점과 단점](https://onlydev.tistory.com/127)을 블로그에 정리 해두었다.
