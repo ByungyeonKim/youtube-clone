@@ -59,13 +59,19 @@ function App({ youtube }) {
             <NavBar />
           </nav>
         )}
-        <section className='mx-auto'>
+        <section
+          className={
+            selectedVideo
+              ? 'flex flex-col lg:flex-row max-w-screen-xl m-auto'
+              : 'flex flex-col lg:flex-row'
+          }
+        >
           {selectedVideo && (
-            <div className=''>
+            <div className='flex-[2]'>
               <VideoDetail video={selectedVideo} />
             </div>
           )}
-          <div className=''>
+          <div className='flex-1'>
             <VideoList
               videos={videos}
               onVideoClick={selectVideo}
