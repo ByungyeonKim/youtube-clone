@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import NavBar from './components/nav_bar';
 import VideoDetail from './components/video_detail';
 import VideoHeader from './components/video_header';
@@ -8,6 +7,7 @@ import VideoList from './components/video_list';
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [isLoading, setLoading] = useState(true);
   const selectVideo = useCallback((video) => {
     setSelectedVideo(video);
   }, []);
@@ -26,13 +26,15 @@ function App({ youtube }) {
 
   const search = useCallback(
     (query) => {
+      setLoading(true);
       youtube
         .search(query) //
         .then((videos) => {
           const promises = [];
-          Promise.all(youtube.channel(videos, promises)).then(() =>
-            setVideos(videos.items)
-          );
+          Promise.all(youtube.channel(videos, promises)).then(() => {
+            setVideos(videos.items);
+            setLoading(false);
+          });
           setSelectedVideo(null);
         });
     },
@@ -44,14 +46,17 @@ function App({ youtube }) {
       .mostPopular() //
       .then((videos) => {
         const promises = [];
-        Promise.all(youtube.channel(videos, promises)).then(() =>
-          setVideos(videos.items)
-        );
+        Promise.all(youtube.channel(videos, promises)).then(() => {
+          setVideos(videos.items);
+          setTimeout(() => {
+            setLoading(false);
+          }, 500);
+        });
       });
   }, [youtube]);
 
   return (
-    <>
+    <div className='h-screen bg-zinc-900'>
       <VideoHeader onSearch={search} logoClick={logoClick} />
       <div className='bg-zinc-900 relative'>
         {!selectedVideo && (
@@ -72,15 +77,23 @@ function App({ youtube }) {
             </div>
           )}
           <div className='flex-1'>
-            <VideoList
-              videos={videos}
-              onVideoClick={selectVideo}
-              display={selectedVideo ? 'list' : 'grid'}
-            />
+            {isLoading && (
+              <div className='pt-[56px] h-screen flex justify-center items-center text-white text-lg lg:pl-[240px]'>
+                <span className='w-5 h-5 mr-2 border-[3px] border-solid rounded-full border-transparent border-t-white border-r-white animate-spin'></span>
+                로딩 중...
+              </div>
+            )}
+            {!isLoading && (
+              <VideoList
+                videos={videos}
+                onVideoClick={selectVideo}
+                display={selectedVideo ? 'list' : 'grid'}
+              />
+            )}
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }
 
