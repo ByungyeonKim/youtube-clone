@@ -17,12 +17,12 @@ const VideoHeader = memo(({ onSearch, logoClick }) => {
     handleSearch();
   };
   return (
-    <header className='fixed flex items-center bg-zinc-800 text-white z-10 px-4 h-[56px] w-full'>
+    <header className='fixed flex items-center bg-primary text-white z-10 px-4 h-[56px] w-full'>
       <section className='flex flex-1 items-center justify-between'>
         <div className='cursor-pointer'>
           <div className='flex items-center' onClick={logoClick}>
             <img className='w-6' src='/logo.png' alt='로고' />
-            <span className='ml-1 font-bold'>VintzTube</span>
+            <span className='ml-1 font-bold text-lg'>VintzTube</span>
           </div>
         </div>
         <div className='hidden sm:mx-12 md:flex items-center grow mx-36 lg:max-w-3xl'>
